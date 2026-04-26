@@ -9,3 +9,5 @@ services:
         generateValue: true
       - key: DATA_DIR
         value: /tmp/data-store
+      - key: ADMIN_EMAIL
+        value: ritikpandey9536@gmail.com

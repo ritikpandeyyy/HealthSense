@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <p class="section-tag">User Records</p>
+    <h2>Prediction History</h2>
+    {% if records %}
+        <div class="history-list">
+            {% for record in records %}
+            <article class="history-card">
+                <div class="history-header">
+                    <h3>{{ record["disease"] }}</h3>
+                    <span>{{ record["created_at"][:19].replace("T", " ") }}</span>
+                </div>
+                <p><strong>Symptoms:</strong> {{ record["symptoms"].replace(",", ", ") }}</p>
+                <p><strong>Diet Recommendation:</strong> {{ record["diet_recommendation"] }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="empty-state">No prediction history yet. Make your first prediction to see it here.</p>
+    {% endif %}
+</section>
+{% endblock %}

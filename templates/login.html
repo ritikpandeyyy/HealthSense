@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <p class="section-tag">Welcome Back</p>
+    <h2>Login Page</h2>
+    <form method="post" class="form-grid">
+        <label>
+            Email Address
+            <input type="email" name="email" placeholder="Enter your email" required>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" placeholder="Enter your password" required>
+        </label>
+        <button type="submit">Log In</button>
+    </form>
+    <p class="helper-text">Use your registered account to access predictions and history.</p>
+</section>
+{% endblock %}

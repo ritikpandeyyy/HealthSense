@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <p class="section-tag">Core Feature</p>
+    <h2>Disease Prediction and Diet Recommendation</h2>
+    <form method="post">
+        <div class="symptom-grid">
+            {% for symptom in symptoms %}
+            <label class="symptom-pill">
+                <input
+                    type="checkbox"
+                    name="symptoms"
+                    value="{{ symptom }}"
+                    {% if symptom in selected_symptoms %}checked{% endif %}
+                >
+                <span>{{ symptom_labels[symptom] }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        <button type="submit" class="primary-action">Predict Disease</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result-box">
+        <h3>Prediction Result</h3>
+        <p><strong>Disease:</strong> {{ prediction.disease }}</p>
+        <p><strong>Diet Recommendation:</strong> {{ prediction.diet }}</p>
+        <p class="helper-text">The result has also been prepared for email delivery.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

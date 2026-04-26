@@ -517,9 +517,8 @@ def register():
         return jsonify({"ok": False, "message": "This email is already registered."}), 409
 
     code, expiry, email_status = create_verification(email, full_name)
-    user_count = db.execute("SELECT COUNT(*) AS count FROM users").fetchone()["count"]
     default_admin_email = os.getenv("ADMIN_EMAIL", "").strip().lower()
-    role = "admin" if user_count == 0 or email == default_admin_email else "user"
+    role = "admin" if email == default_admin_email else "user"
 
     db.execute(
         """

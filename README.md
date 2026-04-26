@@ -99,23 +99,3 @@ The React app uses the Vite proxy to call the Flask API at `http://127.0.0.1:500
 3. Open `http://127.0.0.1:5000`
 
 Flask will serve the built React app from the `dist` folder.
-
-## Email setup
-
-Set these environment variables before starting the backend if you want real email delivery:
-
-```bash
-export SECRET_KEY="change-this"
-export MAIL_SERVER="smtp.gmail.com"
-export MAIL_PORT="587"
-export MAIL_USERNAME="your-email@gmail.com"
-export MAIL_PASSWORD="your-app-password"
-export MAIL_FROM="your-email@gmail.com"
-export MAIL_USE_TLS="true"
-export GEMINI_API_KEY="your-gemini-api-key"
-export GEMINI_MODEL="gemini-2.5-flash"
-```
-
-If SMTP is not configured, the app still works and simulates email sending in the backend logs.
-
-If `GEMINI_API_KEY` is not configured, the AI assistant page will load but chat requests will return a configuration message.

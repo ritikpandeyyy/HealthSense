@@ -45,6 +45,34 @@ SYMPTOM_OPTIONS = [
     {"token": "chills", "label": "Chills"},
     {"token": "dry_skin", "label": "Dry skin"},
     {"token": "constipation", "label": "Constipation"},
+    {"token": "runny_nose", "label": "Runny nose"},
+    {"token": "sneezing", "label": "Sneezing"},
+    {"token": "itching", "label": "Itching"},
+    {"token": "swelling", "label": "Swelling"},
+    {"token": "stiffness", "label": "Stiffness"},
+    {"token": "sensitivity_to_light", "label": "Sensitivity to light"},
+    {"token": "sweating", "label": "Sweating"},
+    {"token": "weight_loss", "label": "Weight loss"},
+    {"token": "weight_gain", "label": "Weight gain"},
+    {"token": "cold_intolerance", "label": "Cold intolerance"},
+    {"token": "loss_of_appetite", "label": "Loss of appetite"},
+    {"token": "back_pain", "label": "Back pain"},
+    {"token": "burning_urination", "label": "Burning urination"},
+    {"token": "jaundice", "label": "Jaundice"},
+    {"token": "bloating", "label": "Bloating"},
+    {"token": "palpitations", "label": "Palpitations"},
+    {"token": "insomnia", "label": "Insomnia"},
+    {"token": "anxiety", "label": "Anxiety"},
+    {"token": "pale_skin", "label": "Pale skin"},
+    {"token": "muscle_weakness", "label": "Muscle weakness"},
+    {"token": "chest_tightness", "label": "Chest tightness"},
+    {"token": "watery_eyes", "label": "Watery eyes"},
+    {"token": "reduced_mobility", "label": "Reduced mobility"},
+    {"token": "stress", "label": "Stress"},
+    {"token": "hair_loss", "label": "Hair loss"},
+    {"token": "heartburn", "label": "Heartburn"},
+    {"token": "numbness", "label": "Numbness"},
+    {"token": "facial_pain", "label": "Facial pain"},
 ]
 
 TOKEN_TO_LABEL = {item["token"]: item["label"] for item in SYMPTOM_OPTIONS}
@@ -111,6 +139,96 @@ DISEASE_META = {
         "recovery": "Medical thyroid testing is recommended",
         "specialist": "Endocrinologist",
     },
+    "Common Cold": {
+        "diet": "Warm fluids, honey-ginger tea, citrus fruits, chicken soup",
+        "risk": "Low",
+        "recovery": "7-10 days with rest and hydration",
+        "specialist": "General Physician",
+    },
+    "Dengue": {
+        "diet": "Papaya leaf juice, hydration, fruits, light easily digestible meals",
+        "risk": "High",
+        "recovery": "Urgent clinical evaluation and platelet monitoring required",
+        "specialist": "Infectious Disease Specialist",
+    },
+    "Malaria": {
+        "diet": "Hydration, easily digestible foods, avoid fatty meals",
+        "risk": "High",
+        "recovery": "Urgent antimalarial treatment required",
+        "specialist": "Infectious Disease Specialist",
+    },
+    "Typhoid": {
+        "diet": "Soft foods, boiled water, bananas, cooked vegetables",
+        "risk": "High",
+        "recovery": "2-4 weeks with antibiotic treatment and rest",
+        "specialist": "Infectious Disease Specialist",
+    },
+    "Anemia": {
+        "diet": "Iron-rich foods, leafy greens, lentils, red meat, vitamin C foods",
+        "risk": "Medium",
+        "recovery": "Follow iron supplementation and dietary guidance",
+        "specialist": "Hematologist",
+    },
+    "Hypertension": {
+        "diet": "Low-sodium DASH diet, potassium-rich foods, oats, berries",
+        "risk": "High",
+        "recovery": "Ongoing monitoring and lifestyle management required",
+        "specialist": "Cardiologist",
+    },
+    "Gastroenteritis": {
+        "diet": "ORS, clear fluids, BRAT diet, yogurt, light meals",
+        "risk": "Medium",
+        "recovery": "Hydrate well and rest for 1-3 days",
+        "specialist": "Gastroenterologist",
+    },
+    "UTI": {
+        "diet": "Plenty of water, cranberry juice, avoid caffeine and alcohol",
+        "risk": "Medium",
+        "recovery": "Antibiotic course typically resolves in 3-5 days",
+        "specialist": "Urologist",
+    },
+    "Kidney Stones": {
+        "diet": "High water intake, low oxalate diet, reduce sodium and protein",
+        "risk": "High",
+        "recovery": "Small stones may pass naturally; larger stones need treatment",
+        "specialist": "Urologist",
+    },
+    "Liver Disease": {
+        "diet": "Low-fat meals, avoid alcohol, high-fiber fruits and vegetables",
+        "risk": "High",
+        "recovery": "Urgent hepatic evaluation and specialist care required",
+        "specialist": "Hepatologist",
+    },
+    "Anxiety Disorder": {
+        "diet": "Omega-3 foods, whole grains, leafy greens, magnesium-rich foods",
+        "risk": "Medium",
+        "recovery": "Therapy, mindfulness, and lifestyle changes can help significantly",
+        "specialist": "Psychiatrist",
+    },
+    "Depression": {
+        "diet": "Omega-3 foods, whole grains, fruits, dark chocolate, vitamin D sources",
+        "risk": "High",
+        "recovery": "Seek professional mental health support and therapy",
+        "specialist": "Psychiatrist",
+    },
+    "Pneumonia": {
+        "diet": "Warm fluids, lean protein, fruits high in vitamin C, honey",
+        "risk": "High",
+        "recovery": "Urgent medical care and antibiotic treatment required",
+        "specialist": "Pulmonologist",
+    },
+    "Sinusitis": {
+        "diet": "Hot soups, ginger tea, vitamin C foods, warm water with honey",
+        "risk": "Low",
+        "recovery": "5-10 days with rest, steam inhalation, and nasal care",
+        "specialist": "ENT Specialist",
+    },
+    "Eczema": {
+        "diet": "Anti-inflammatory foods, omega-3, vitamin D foods, avoid allergens",
+        "risk": "Low",
+        "recovery": "Ongoing management with moisturizers and trigger avoidance",
+        "specialist": "Dermatologist",
+    },
 }
 
 DOCTOR_DIRECTORY = [
@@ -122,6 +240,13 @@ DOCTOR_DIRECTORY = [
     {"doctorName": "Dr. Prateek Jain", "speciality": "Orthopedic Specialist", "hospital": "Motion Joint Care", "city": "Jaipur"},
     {"doctorName": "Dr. Sana Ali", "speciality": "Allergist", "hospital": "Breath & Allergy Studio", "city": "Hyderabad"},
     {"doctorName": "Dr. Varun Sen", "speciality": "Pulmonologist", "hospital": "Airway Health Center", "city": "Kolkata"},
+    {"doctorName": "Dr. Meera Iyer", "speciality": "Dermatologist", "hospital": "Skin & Glow Clinic", "city": "Chennai"},
+    {"doctorName": "Dr. Arjun Mehta", "speciality": "Psychiatrist", "hospital": "Mind Balance Institute", "city": "Mumbai"},
+    {"doctorName": "Dr. Pooja Rajan", "speciality": "Hematologist", "hospital": "Bloodcare Center", "city": "Delhi"},
+    {"doctorName": "Dr. Suresh Verma", "speciality": "Hepatologist", "hospital": "Liver & Gut Hospital", "city": "Bengaluru"},
+    {"doctorName": "Dr. Anjali Bose", "speciality": "Urologist", "hospital": "Urology Plus", "city": "Kolkata"},
+    {"doctorName": "Dr. Vikram Nair", "speciality": "Infectious Disease Specialist", "hospital": "Tropical Health Center", "city": "Kochi"},
+    {"doctorName": "Dr. Sunita Chopra", "speciality": "ENT Specialist", "hospital": "Ear Nose Throat Care", "city": "Chandigarh"},
 ]
 
 app = Flask(__name__, static_folder=str(DIST_DIR / "assets"), static_url_path="/assets")
@@ -888,34 +1013,85 @@ def admin_overview():
         return error
 
     db = get_db()
+
     total_users = db.execute("SELECT COUNT(*) AS count FROM users").fetchone()["count"]
     verified_users = db.execute("SELECT COUNT(*) AS count FROM users WHERE is_verified = 1").fetchone()["count"]
+    active_users = db.execute("SELECT COUNT(DISTINCT user_id) AS count FROM predictions").fetchone()["count"]
     total_predictions = db.execute("SELECT COUNT(*) AS count FROM predictions").fetchone()["count"]
     total_appointments = db.execute("SELECT COUNT(*) AS count FROM appointments").fetchone()["count"]
 
+    today_prefix = datetime.now().strftime("%Y-%m-%d")
+    predictions_today = db.execute(
+        "SELECT COUNT(*) AS count FROM predictions WHERE created_at LIKE ?", (f"{today_prefix}%",)
+    ).fetchone()["count"]
+
+    week_ago = (datetime.now() - timedelta(days=7)).isoformat()
+    predictions_week = db.execute(
+        "SELECT COUNT(*) AS count FROM predictions WHERE created_at >= ?", (week_ago,)
+    ).fetchone()["count"]
+
+    avg_conf_row = db.execute("SELECT AVG(confidence) AS avg FROM predictions").fetchone()["avg"]
+    avg_confidence = round(avg_conf_row, 1) if avg_conf_row else 0
+
+    email_delivered = db.execute("SELECT COUNT(*) AS count FROM predictions WHERE email_status = 'Delivered'").fetchone()["count"]
+    email_failed = db.execute("SELECT COUNT(*) AS count FROM predictions WHERE email_status = 'Failed'").fetchone()["count"]
+    email_simulated = db.execute("SELECT COUNT(*) AS count FROM predictions WHERE email_status = 'Simulated'").fetchone()["count"]
+
     recent_users = db.execute(
+        "SELECT id, full_name, email, created_at, is_verified, role FROM users ORDER BY created_at DESC LIMIT 8"
+    ).fetchall()
+
+    risk_rows = db.execute(
+        "SELECT risk_level, COUNT(*) AS count FROM predictions GROUP BY risk_level ORDER BY count DESC"
+    ).fetchall()
+
+    disease_rows = db.execute(
+        "SELECT disease, COUNT(*) AS count FROM predictions GROUP BY disease ORDER BY count DESC LIMIT 10"
+    ).fetchall()
+
+    all_symptom_rows = db.execute("SELECT symptoms FROM predictions").fetchall()
+    symptom_counts = {}
+    for row in all_symptom_rows:
+        for sym in row["symptoms"].split(","):
+            sym = sym.strip()
+            if sym:
+                symptom_counts[sym] = symptom_counts.get(sym, 0) + 1
+    top_symptoms = [
+        {"label": TOKEN_TO_LABEL.get(s, s.replace("_", " ").title()), "value": c}
+        for s, c in sorted(symptom_counts.items(), key=lambda x: x[1], reverse=True)[:10]
+    ]
+
+    recent_predictions = db.execute(
         """
-        SELECT id, full_name, email, created_at, is_verified, role
-        FROM users
-        ORDER BY created_at DESC
+        SELECT p.id, p.disease, p.confidence, p.risk_level, p.email_status, p.created_at,
+               u.full_name, u.email
+        FROM predictions p
+        JOIN users u ON p.user_id = u.id
+        ORDER BY p.created_at DESC
         LIMIT 8
         """
     ).fetchall()
-    risk_rows = db.execute(
-        """
-        SELECT risk_level, COUNT(*) AS count
-        FROM predictions
-        GROUP BY risk_level
-        """
+
+    appt_status_rows = db.execute(
+        "SELECT status, COUNT(*) AS count FROM appointments GROUP BY status ORDER BY count DESC"
     ).fetchall()
+
     return jsonify(
         {
             "ok": True,
             "stats": {
                 "totalUsers": total_users,
                 "verifiedUsers": verified_users,
+                "unverifiedUsers": total_users - verified_users,
+                "activeUsers": active_users,
                 "totalPredictions": total_predictions,
+                "predictionsToday": predictions_today,
+                "predictionsThisWeek": predictions_week,
+                "avgConfidence": avg_confidence,
                 "totalAppointments": total_appointments,
+                "emailDelivered": email_delivered,
+                "emailFailed": email_failed,
+                "emailSimulated": email_simulated,
             },
             "users": [
                 {
@@ -929,6 +1105,22 @@ def admin_overview():
                 for row in recent_users
             ],
             "riskChart": [{"label": row["risk_level"] or "Unknown", "value": row["count"]} for row in risk_rows],
+            "diseaseChart": [{"label": row["disease"], "value": row["count"]} for row in disease_rows],
+            "topSymptoms": top_symptoms,
+            "recentPredictions": [
+                {
+                    "id": row["id"],
+                    "disease": row["disease"],
+                    "confidence": row["confidence"],
+                    "risk": row["risk_level"],
+                    "emailStatus": row["email_status"],
+                    "createdAt": row["created_at"],
+                    "userName": row["full_name"],
+                    "userEmail": row["email"],
+                }
+                for row in recent_predictions
+            ],
+            "appointmentStatus": [{"label": row["status"], "value": row["count"]} for row in appt_status_rows],
         }
     )
 

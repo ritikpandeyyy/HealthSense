@@ -1,10 +1,8 @@
 import os
 import random
-import smtplib
 import sqlite3
 from csv import DictReader
 from datetime import datetime, timedelta
-from email.message import EmailMessage
 from pathlib import Path
 from urllib import error as urllib_error
 from urllib import request as urllib_request
@@ -253,33 +251,37 @@ DATASET = load_dataset()
 
 
 def send_email(subject, recipient, body):
-    mail_server = os.getenv("MAIL_SERVER")
-    mail_port = int(os.getenv("MAIL_PORT", "587"))
-    mail_username = os.getenv("MAIL_USERNAME")
-    mail_password = os.getenv("MAIL_PASSWORD")
-    mail_from = os.getenv("MAIL_FROM", mail_username or "noreply@example.com")
-    use_tls = os.getenv("MAIL_USE_TLS", "true").lower() == "true"
+    api_key = os.getenv("SENDGRID_API_KEY")
+    mail_from = os.getenv("MAIL_FROM", "noreply@example.com")
 
-    if not mail_server or not recipient:
+    if not api_key or not recipient:
         print(f"\n[Email simulation]\nTo: {recipient}\nSubject: {subject}\n\n{body}\n")
         return "Simulated"
 
+    payload = json.dumps({
+        "personalizations": [{"to": [{"email": recipient}]}],
+        "from": {"email": mail_from},
+        "subject": subject,
+        "content": [{"type": "text/plain", "value": body}],
+    }).encode("utf-8")
+    req = urllib_request.Request(
+        "https://api.sendgrid.com/v3/mail/send",
+        data=payload,
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    print(f"[Email] Sending '{subject}' to {recipient} via SendGrid...")
     try:
-        message = EmailMessage()
-        message["Subject"] = subject
-        message["From"] = mail_from
-        message["To"] = recipient
-        message.set_content(body)
-
-        with smtplib.SMTP(mail_server, mail_port) as server:
-            if use_tls:
-                server.starttls()
-            if mail_username and mail_password:
-                server.login(mail_username, mail_password)
-            server.send_message(message)
+        with urllib_request.urlopen(req, timeout=15) as response:
+            response.read()
+        print(f"[Email] Delivered '{subject}' to {recipient}")
         return "Delivered"
+    except urllib_error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="ignore")
+        print(f"[Email] Failed to deliver '{subject}' to {recipient}: {exc.code} {detail or exc.reason}")
+        return "Failed"
     except Exception as exc:
-        print(f"Email delivery failed for {recipient}: {exc}")
+        print(f"[Email] Failed to deliver '{subject}' to {recipient}: {exc}")
         return "Failed"
 
 

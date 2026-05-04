@@ -11,3 +11,7 @@ services:
         value: /tmp/data-store
       - key: ADMIN_EMAIL
         value: ritikpandey9536@gmail.com
+      - key: SENDGRID_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false

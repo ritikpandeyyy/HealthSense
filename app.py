@@ -379,10 +379,6 @@ def send_email(subject, recipient, body):
     api_key = os.getenv("SENDGRID_API_KEY")
     mail_from = os.getenv("MAIL_FROM", "noreply@example.com")
 
-    if not api_key or not recipient:
-        print(f"\n[Email simulation]\nTo: {recipient}\nSubject: {subject}\n\n{body}\n")
-        return "Simulated"
-
     payload = json.dumps({
         "personalizations": [{"to": [{"email": recipient}]}],
         "from": {"email": mail_from},
